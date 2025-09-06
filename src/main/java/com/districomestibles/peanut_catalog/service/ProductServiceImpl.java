@@ -36,10 +36,9 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findById(id)
                 .map(product -> {
                     product.setName(productDetails.getName());
-                    product.setCategory(productDetails.getCategory());
                     product.setPrice(productDetails.getPrice());
-                    product.setWeight(productDetails.getWeight());
-                    product.setFlavor(productDetails.getFlavor());
+                    product.setQuantity(productDetails.getQuantity());
+                    product.setCategory(productDetails.getCategory());
                     return productRepository.save(product);
                 })
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
